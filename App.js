@@ -78,6 +78,9 @@ export default function App() {
         return;
       case '+/-':
         return;
+      case '%':
+        setCurrentNumber(currentNumber/100);
+        return;
     }
 
     setCurrentNumber(currentNumber + buttonPressed);
