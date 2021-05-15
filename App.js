@@ -55,12 +55,21 @@ export default function App() {
 
   function handleInput(buttonPressed) {
     console.log(buttonPressed); // Mostra no Console a tecla pressionada
+
+    if (buttonPressed === '.' && currentNumber.match(/\./g) !== null) {
+      // Retorna se já tem uma vírgula
+      return;
+    }
+
     if (
       (buttonPressed === '+') |
       (buttonPressed === '-') |
       (buttonPressed === '*') |
       (buttonPressed === '/')
     ) {
+      if (operators.includes(currentNumber[currentNumber.length - 2])) {
+        return;
+      }
       setCurrentNumber(currentNumber + ' ' + buttonPressed + ' ');
       return;
     }
@@ -77,9 +86,10 @@ export default function App() {
         calculator();
         return;
       case '+/-':
+        setCurrentNumber(currentNumber * -1);
         return;
       case '%':
-        setCurrentNumber(currentNumber/100);
+        setCurrentNumber(currentNumber / 100);
         return;
     }
 
