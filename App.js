@@ -44,11 +44,11 @@ export default function App() {
       case '-':
         setCurrentNumber((fistNumber - lastNumber).toString());
         return;
-      case 'x':
-        setCurrentNumber((fistNumber + lastNumber).toString());
+      case '*':
+        setCurrentNumber((fistNumber * lastNumber).toString());
         return;
       case '/':
-        setCurrentNumber((fistNumber - lastNumber).toString());
+        setCurrentNumber((fistNumber / lastNumber).toString());
         return;
     }
   }
@@ -58,7 +58,7 @@ export default function App() {
     if (
       (buttonPressed === '+') |
       (buttonPressed === '-') |
-      (buttonPressed === 'x') |
+      (buttonPressed === '*') |
       (buttonPressed === '/')
     ) {
       setCurrentNumber(currentNumber + ' ' + buttonPressed + ' ');
